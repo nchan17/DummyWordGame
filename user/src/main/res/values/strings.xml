@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">User</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="user_move_edit_text_hint">Enter your guess</string>
 </resources>
