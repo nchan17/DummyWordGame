@@ -18,8 +18,10 @@ class UserViewModel(app: Application) : AndroidViewModel(app) {
     private val mMessenger = Messenger(IncomingHandler())
 
     companion object {
-        const val MSG_REGISTER_CLIENT = 1
-        const val MSG_SET_VALUE = 2
+        enum class MSG_GOAL {
+            REGISTER_CLIENT,
+            SET_VALUE,
+        }
         const val BUNDLE_STRING_KEY = "BUNDLE_STRING_KEY"
         const val BOT_GAVE_UP = "TOO_MUCH_FOR_ME"
     }
@@ -32,7 +34,7 @@ class UserViewModel(app: Application) : AndroidViewModel(app) {
             bound = true
             mService = Messenger(service)
             try {
-                val msg: Message = Message.obtain(null, MSG_REGISTER_CLIENT)
+                val msg: Message = Message.obtain(null, MSG_GOAL.REGISTER_CLIENT.ordinal)
                 msg.replyTo = mMessenger
                 mService!!.send(msg)
             } catch (e: RemoteException) {
@@ -66,7 +68,7 @@ class UserViewModel(app: Application) : AndroidViewModel(app) {
         if (!bound) {
             return
         }
-        val msg = Message.obtain(null, MSG_SET_VALUE, this.hashCode(), 0)
+        val msg = Message.obtain(null, MSG_GOAL.SET_VALUE.ordinal, this.hashCode(), 0)
         val bundle = Bundle()
         bundle.putString(BUNDLE_STRING_KEY, mySubmitText)
         msg.data = bundle

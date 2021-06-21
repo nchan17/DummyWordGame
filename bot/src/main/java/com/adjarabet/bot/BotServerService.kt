@@ -11,22 +11,25 @@ class BotServerService : Service() {
     internal class IncomingHandler(
         context: Context,
     ) : Handler() {
-        var mClients = ArrayList<Messenger>()
+        private var mClients = ArrayList<Messenger>()
 
         companion object {
-            const val GIVE_UP_PERCENTAGE = 0.03
-            const val MSG_REGISTER_CLIENT = 1
-            const val MSG_SET_VALUE = 2
-            const val BUNDLE_STRING_KEY = "BUNDLE_STRING_KEY"
+            enum class MSG_GOAL {
+                REGISTER_CLIENT,
+                SET_VALUE,
+            }
+
             const val STRING_LENGTH = 5
+            const val GIVE_UP_PERCENTAGE = 0.03
+            const val BUNDLE_STRING_KEY = "BUNDLE_STRING_KEY"
             const val BOT_GAVE_UP = "TOO_MUCH_FOR_ME"
             val charPool: List<Char> = ('a'..'z').toList()
         }
 
         override fun handleMessage(msg: Message) {
             when (msg.what) {
-                MSG_REGISTER_CLIENT -> mClients.add(msg.replyTo)
-                MSG_SET_VALUE -> {
+                MSG_GOAL.REGISTER_CLIENT.ordinal -> mClients.add(msg.replyTo)
+                MSG_GOAL.SET_VALUE.ordinal -> {
                     var i: Int = mClients.size - 1
                     while (i >= 0) {
                         try {
