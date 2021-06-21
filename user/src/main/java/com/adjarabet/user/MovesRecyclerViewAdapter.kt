@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MovesRecyclerViewAdapter(dataSet: Array<String>) :
     RecyclerView.Adapter<MovesRecyclerViewAdapter.ViewHolder>() {
-    private val localData: MutableList<String> = dataSet.toMutableList()
+    val localData: MutableList<String> = dataSet.toMutableList()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
@@ -32,7 +32,12 @@ class MovesRecyclerViewAdapter(dataSet: Array<String>) :
 
         fun bind(elem: String) {
             val playerIndex = layoutPosition % 2 + 1
-            textView.text = "${layoutPosition + 1}) PL-$playerIndex: $elem"
+            textView.text = itemView.context.getString(
+                R.string.each_line_with_num,
+                (layoutPosition + 1),
+                playerIndex,
+                elem
+            )
         }
     }
 }
