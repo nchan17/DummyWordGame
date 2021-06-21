@@ -41,6 +41,16 @@ PL-1 : tree a 2 words so looses game
 
 ## Installation
 
-install bot
+Clone project to Android Studio
 
-install user
+#### install bot
+
+While running bot on Android Studio, you might get a warning, since this app doesn't have an Activity and only runs in background
+
+All you have to do is modify launch options:
+
+bot -> Edit Configurations -> Launch Options -> Launch -> Nothing
+
+#### install user
+
+For user to work, at first, you need to install bot

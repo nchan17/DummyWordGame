@@ -45,6 +45,7 @@ class MainUserActivity : AppCompatActivity() {
 
     private fun addWordScroll(mySubmitText: String) {
         recyclerViewAdapter.addItem(mySubmitText)
+        binding.userMoveEditText.text.clear()
         binding.wordsRecyclerView.scrollToPosition(recyclerViewAdapter.itemCount - 1)
     }
 
