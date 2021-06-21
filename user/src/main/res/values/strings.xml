@@ -2,11 +2,11 @@
     <string name="app_name">User</string>
     <string name="submit_button_text">Submit</string>
     <string name="user_move_edit_text_hint">Enter your guess</string>
-    <string name="lose_game_full_line">%1$s -> %2$s, so "PL-1" loses the game</string>
+    <string name="lose_game_full_line">%1$s -> %2$s, so \"PL-1\" loses the game</string>
     <string name="error_text_end_space">additional space detected at the end</string>
     <string name="error_text_repeat">repeating is not allowed</string>
     <string name="error_text_multiple_spaces">illegal use of space key</string>
     <string name="error_text_invalid_word_num">invalid number of words. expected %1$d, got %2$d</string>
-    <string name="error_text_wrong_word">"%1$s" is incorrect, should have been "%2$s"</string>
+    <string name="error_text_wrong_word">\"%1$s\" is incorrect, should have been \"%2$s\"</string>
     <string name="each_line_with_num">%1$d) PL-%2$d: %3$s</string>
 </resources>
