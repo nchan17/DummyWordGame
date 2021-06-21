@@ -52,6 +52,7 @@ class UserViewModel(app: Application) : AndroidViewModel(app) {
             validateMove(str, ls)
         if (validationRes.first) {
             newSubmitString.value = str
+            disableSubmitButton.value = true
             sendMessage(str)
         } else {
             newSubmitString.value = getRes().getString(
@@ -133,6 +134,7 @@ class UserViewModel(app: Application) : AndroidViewModel(app) {
             val dataString = data.getString(BUNDLE_STRING_KEY)
             if (dataString != null) {
                 newSubmitString.value = dataString
+                disableSubmitButton.value = false
                 if (BOT_GAVE_UP == dataString) {
                     disableSubmitButton.value = true
                     return

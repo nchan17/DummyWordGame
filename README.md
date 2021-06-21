@@ -45,7 +45,7 @@ Clone project to Android Studio
 
 #### install bot
 
-While running bot on Android Studio, you might get a warning, since this app doesn't have an Activity and only runs in background
+While running bot on Android Studio, you will get an error, since this app doesn't have an Activity and only runs in background
 
 All you have to do is modify launch options:
 
